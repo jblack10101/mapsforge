@@ -46,17 +46,17 @@ import android.view.ViewGroup;
 
 public class MapView extends ViewGroup implements org.mapsforge.map.view.MapView {
 
-	private static final GraphicFactory GRAPHIC_FACTORY = AndroidGraphicFactory.INSTANCE;
+	protected static final GraphicFactory GRAPHIC_FACTORY = AndroidGraphicFactory.INSTANCE;
 
-	private final FpsCounter fpsCounter;
-	private final FrameBuffer frameBuffer;
-	private final FrameBufferController frameBufferController;
-	private GestureDetector gestureDetector;
-	private final LayerManager layerManager;
-	private MapScaleBar mapScaleBar;
-	private final MapZoomControls mapZoomControls;
-	private final Model model;
-	private final TouchEventHandler touchEventHandler;
+    protected final FpsCounter fpsCounter;
+    protected final FrameBuffer frameBuffer;
+    protected final FrameBufferController frameBufferController;
+    protected GestureDetector gestureDetector;
+    protected final LayerManager layerManager;
+    protected MapScaleBar mapScaleBar;
+    protected final MapZoomControls mapZoomControls;
+    protected final Model model;
+    protected final TouchEventHandler touchEventHandler;
 
 	public MapView(Context context) {
 		this(context, null);
@@ -198,7 +198,7 @@ public class MapView extends ViewGroup implements org.mapsforge.map.view.MapView
 	}
 
 	@Override
-	protected final void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		// find out how big the zoom controls should be
 		this.mapZoomControls.measure(
 				MeasureSpec.makeMeasureSpec(MeasureSpec.getSize(widthMeasureSpec), MeasureSpec.AT_MOST),
