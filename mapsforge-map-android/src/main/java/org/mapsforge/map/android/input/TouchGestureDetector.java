@@ -38,7 +38,12 @@ public class TouchGestureDetector implements TouchEventListener {
 		this.projection = new MapViewProjection(this.mapView);
 	}
 
-	@Override
+    @Override
+    public void onActionDown(LatLong latLong, Point point, long eventTime) {
+        // currently ignored
+    }
+
+    @Override
 	public void onActionUp(LatLong latLong, Point xy, long eventTime, boolean moveThresholdReached) {
 		if (moveThresholdReached) {
 			this.lastActionUpPoint = null;

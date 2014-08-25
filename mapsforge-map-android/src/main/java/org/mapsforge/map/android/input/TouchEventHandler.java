@@ -153,6 +153,10 @@ public class TouchEventHandler {
 			this.longPressHandler.postDelayed(onLongPress, ViewConfiguration.getLongPressTimeout());
 		}
 
+        for (TouchEventListener touchEventListener : this.touchEventListeners) {
+            touchEventListener.onActionDown(this.lastLatLong, this.lastPosition, motionEvent.getEventTime());
+        }
+
 		return true;
 	}
 
